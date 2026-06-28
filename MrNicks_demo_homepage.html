@@ -112,8 +112,13 @@
   .col .tag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.8}
   .col.now .tag{color:var(--red)} .col.new .tag{color:var(--gold)}
   .col ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:13px}
-  .col li{display:flex;gap:11px;font-size:14.7px;align-items:flex-start}
-  .col li .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;margin-top:1px}
+  .col li{display:flex;gap:12px;align-items:flex-start;text-align:left}
+  .col li .ic{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:2px}
+  .col li .tx{display:flex;flex-direction:column;gap:2px;line-height:1.38}
+  .col li .tx b{font-size:15px;font-weight:700}
+  .col li .tx span{font-size:13px}
+  .col.now li .tx span{color:var(--mut)}
+  .col.new li .tx span{color:rgba(255,255,255,.82)}
   .col.now li .ic{background:#fdeae8;color:var(--red)}
   .col.new li .ic{background:rgba(255,255,255,.18);color:#fff}
   .pricebar{max-width:980px;margin:26px auto 0;text-align:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
@@ -234,20 +239,20 @@
     <div class="col now">
       <div class="tag">Your site today</div><h3 class="serif">A digital business card</h3>
       <ul>
-        <li><span class="ic">✕</span> Menu is a <b>PDF you download</b> — painful on a phone, and Google can't read it.</li>
-        <li><span class="ic">✕</span> Your <b>184 five-star reviews are nowhere</b> on the page — your best asset, hidden.</li>
-        <li><span class="ic">✕</span> <b>No "Order Online" button</b> up top — hungry visitors leave to find one.</li>
-        <li><span class="ic">✕</span> Generic template, slow to load, doesn't show the new bar.</li>
+        <li><span class="ic">✕</span><div class="tx"><b>PDF-only menu</b><span>Painful on a phone — and Google can't read it.</span></div></li>
+        <li><span class="ic">✕</span><div class="tx"><b>Reviews hidden</b><span>Your 184 five-star reviews aren't even on the page.</span></div></li>
+        <li><span class="ic">✕</span><div class="tx"><b>No "Order" button</b><span>Hungry visitors leave to find one elsewhere.</span></div></li>
+        <li><span class="ic">✕</span><div class="tx"><b>Generic &amp; slow</b><span>A dated template that ignores the new bar.</span></div></li>
       </ul>
     </div>
     <div class="col new">
       <div class="tag">What we built</div><h3 class="serif">An order &amp; reservation machine</h3>
       <ul>
-        <li><span class="ic">✓</span> <b>One-tap Order, Call &amp; Reserve</b> — the craving gets captured in a single thumb tap.</li>
-        <li><span class="ic">✓</span> <b>Your real 5-star reviews front and center</b> — instant trust, more first-time orders.</li>
-        <li><span class="ic">✓</span> A menu that <b>loads instantly and shows up in Google</b> searches.</li>
-        <li><span class="ic">✓</span> The <b>new bar &amp; dining room showcased</b> — higher-margin tables and cocktails.</li>
-        <li><span class="ic">✓</span> Loads in under a second, looks built-for-today, and it's <b>yours forever</b>.</li>
+        <li><span class="ic">✓</span><div class="tx"><b>One-tap Order / Call / Reserve</b><span>The craving is captured in a single thumb tap.</span></div></li>
+        <li><span class="ic">✓</span><div class="tx"><b>Reviews up front</b><span>Instant trust — more first-time orders.</span></div></li>
+        <li><span class="ic">✓</span><div class="tx"><b>Instant, searchable menu</b><span>Loads fast and shows up in Google.</span></div></li>
+        <li><span class="ic">✓</span><div class="tx"><b>The bar &amp; dining room, featured</b><span>Higher-margin tables and cocktails.</span></div></li>
+        <li><span class="ic">✓</span><div class="tx"><b>Yours forever</b><span>Lightning fast, built-for-today, no monthly fees.</span></div></li>
       </ul>
     </div>
   </div>
