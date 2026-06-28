@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Nick's Brick Oven Pizza — Tarrytown, NY | Order Online</title>
+<meta name="description" content="Mr. Nick's Brick Oven Pizza & Italian Restaurant — a Tarrytown gem since 2007. Brick-oven pizza, homemade pasta, full bar. Order online or reserve a table.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1f8a44; --green-d:#10662f; --red:#d23b2c; --gold:#e0b052;
+    --cream:#f7f1e6; --ink:#15110d; --mut:#6a625a; --line:rgba(120,100,70,.18);
+    --glass:rgba(255,255,255,.10); --glass-2:rgba(255,255,255,.16);
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .serif{font-family:var(--serif)}
+  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:12px}
+  .h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,4.4vw,44px);line-height:1.08;margin:8px 0 8px}
+  .sub{color:var(--mut);max-width:620px;margin:0 auto 40px;font-size:16.5px}
+  .center{text-align:center}
+  section{padding:78px 0;position:relative}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;padding:13px 22px;border-radius:999px;font-size:15px;transition:transform .16s,box-shadow .16s,background .16s;cursor:pointer;border:none}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.red{background:var(--red);color:#fff;box-shadow:0 10px 26px rgba(210,59,44,.34)}
+  .btn.green{background:var(--green);color:#fff;box-shadow:0 10px 26px rgba(31,138,68,.30)}
+  .btn.glass{background:var(--glass-2);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.6px solid var(--ink)}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100vh;display:flex;flex-direction:column;color:#fff;
+    background-image:linear-gradient(rgba(18,12,8,.55),rgba(18,12,8,.78)),
+      url('https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.42_b771e378.jpg'),
+      url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=70');
+    background-size:cover;background-position:center}
+  /* top nav (glass) */
+  .nav{position:sticky;top:0;z-index:60;background:rgba(20,14,9,.45);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;gap:14px}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff}
+  .brand img{height:42px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+  .brand .bt{font-family:var(--serif);font-weight:800;font-size:19px;line-height:1}
+  .brand .bt small{display:block;font-family:var(--sans);font-weight:600;font-size:9.5px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-top:3px}
+  .nav nav{display:flex;gap:24px;font-weight:600;font-size:14px;color:#f0e9dd}
+  .nav nav a:hover{color:var(--gold)}
+  @media(max-width:860px){.nav nav{display:none}}
+  .hero-body{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 22px 90px}
+  .hero-card{max-width:760px;padding:48px 40px;border-radius:28px;
+    background:var(--glass);backdrop-filter:blur(16px) saturate(130%);border:1px solid rgba(255,255,255,.22);
+    box-shadow:0 30px 80px rgba(0,0,0,.45)}
+  .hero .kick{color:var(--gold);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:12.5px}
+  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,7vw,72px);line-height:1.02;margin:14px 0 14px;text-shadow:0 3px 26px rgba(0,0,0,.5)}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p{font-size:18px;color:#f1e9da;max-width:560px;margin:0 auto 28px}
+  .hero .btns{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .ratepill{margin-top:26px;display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.2);font-size:13.5px}
+  .ratepill b{color:var(--gold);font-size:15px}
+
+  /* ---------- STATS ---------- */
+  .stats{margin-top:-46px;position:relative;z-index:5}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:680px){.stats .wrap{grid-template-columns:1fr 1fr}}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 16px;text-align:center;box-shadow:0 14px 34px rgba(60,40,15,.10)}
+  .stat .n{font-family:var(--serif);font-weight:800;font-size:30px;color:var(--green-d);line-height:1}
+  .stat .l{font-size:12.5px;color:var(--mut);margin-top:6px;font-weight:500}
+
+  /* ---------- REVIEWS ---------- */
+  .rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:760px){.rgrid{grid-template-columns:1fr}}
+  .rcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;box-shadow:0 8px 22px rgba(60,40,15,.06);transition:transform .18s,box-shadow .18s}
+  .rcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(60,40,15,.12)}
+  .rcard::before{content:"\201C";position:absolute;top:6px;right:22px;font-family:var(--serif);font-size:90px;color:rgba(224,176,82,.18);line-height:1}
+  .rstars{color:var(--gold);font-size:17px;letter-spacing:2px;margin-bottom:10px}
+  .rtext{font-size:16px;color:#2b2620;position:relative;z-index:1}
+  .rname{margin-top:14px;font-weight:700;font-size:13.5px;color:var(--green-d)}
+  .rname span{color:var(--mut);font-weight:500}
+
+  /* ---------- MENU ---------- */
+  .menu{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:860px){.mgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.mgrid{grid-template-columns:1fr}}
+  .mcard{border-radius:20px;overflow:hidden;position:relative;height:230px;display:flex;align-items:flex-end;box-shadow:0 10px 26px rgba(40,30,15,.12);transition:transform .2s}
+  .mcard:hover{transform:translateY(-4px)}
+  .mcard .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s}
+  .mcard:hover .bg{transform:scale(1.07)}
+  .mcard .ov{position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(15,10,6,.82))}
+  .mcard .gl{position:relative;z-index:2;width:100%;margin:14px;padding:14px 16px;border-radius:14px;background:rgba(20,14,9,.30);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);color:#fff}
+  .mcard .gl h3{font-family:var(--serif);font-size:21px;margin-bottom:2px}
+  .mcard .gl p{font-size:12.5px;color:#e9e0d2}
+
+  /* ---------- BAR / EXPERIENCE ---------- */
+  .exp{color:#fff;background-image:linear-gradient(rgba(15,10,6,.66),rgba(15,10,6,.82)),url('https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.37_54773bc0.jpg'),url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=70');background-size:cover;background-position:center}
+  .exp .glasscard{max-width:560px;padding:38px 36px;border-radius:24px;background:var(--glass);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.22);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .exp h2{font-family:var(--serif);font-size:clamp(28px,4.4vw,40px);margin-bottom:14px}
+  .exp p{color:#eae0d0;margin-bottom:22px}
+
+  /* ---------- WHY UPGRADE ---------- */
+  .why{background:linear-gradient(180deg,#fbf6ec,#f3ead9)}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto}
+  @media(max-width:760px){.cmp{grid-template-columns:1fr}}
+  .col{border-radius:22px;padding:30px 28px}
+  .col.now{background:#fff;border:1px solid var(--line)}
+  .col.new{background:linear-gradient(160deg,#10662f,#1f8a44);color:#fff;box-shadow:0 22px 50px rgba(16,102,47,.32)}
+  .col h3{font-family:var(--serif);font-size:23px;margin-bottom:4px}
+  .col .tag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;opacity:.8}
+  .col.now .tag{color:var(--red)} .col.new .tag{color:var(--gold)}
+  .col ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:13px}
+  .col li{display:flex;gap:11px;font-size:14.7px;align-items:flex-start}
+  .col li .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;margin-top:1px}
+  .col.now li .ic{background:#fdeae8;color:var(--red)}
+  .col.new li .ic{background:rgba(255,255,255,.18);color:#fff}
+  .pricebar{max-width:980px;margin:26px auto 0;text-align:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+  .pricebar .big{font-family:var(--serif);font-size:30px;font-weight:800;color:var(--green-d)}
+  .pricebar .big small{font-size:15px;color:var(--mut);font-weight:600}
+  .pricebar p{color:var(--mut);font-size:14.5px;margin:6px auto 16px;max-width:560px}
+
+  /* ---------- GALLERY ---------- */
+  .gal{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:860px){.gal{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:480px){.gal{grid-template-columns:repeat(2,1fr)}}
+  .gal img{aspect-ratio:1;object-fit:cover;border-radius:14px;width:100%;transition:transform .25s,filter .25s;filter:saturate(1.02)}
+  .gal img:hover{transform:scale(1.04)}
+
+  /* ---------- VISIT / MAP ---------- */
+  .visit{background:var(--ink);color:#f0e7d8}
+  .vgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:stretch}
+  @media(max-width:820px){.vgrid{grid-template-columns:1fr}}
+  .vcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:30px;backdrop-filter:blur(8px)}
+  .vcard h3{font-family:var(--serif);font-size:24px;margin-bottom:14px}
+  .vcard p{color:#cfc4b3;margin-bottom:8px}
+  .hours b{color:#fff}
+  .mapwrap{border-radius:20px;overflow:hidden;min-height:330px;border:1px solid rgba(255,255,255,.14)}
+  .mapwrap iframe{width:100%;height:100%;min-height:330px;border:0;filter:grayscale(.2) contrast(1.05)}
+
+  footer{background:#0e0a06;color:#bdb2a1;text-align:center;padding:34px 20px;font-size:13.5px}
+  footer .fb{font-family:var(--serif);color:#fff;font-size:20px;margin-bottom:8px}
+  footer a{color:var(--gold)}
+
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;padding:10px 14px;background:rgba(15,10,6,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.12)}
+  .mbar a{flex:1;text-align:center;padding:14px;border-radius:13px;font-weight:700;font-size:15px;color:#fff}
+  .mbar .o{background:var(--red)} .mbar .c{background:var(--green)}
+  @media(max-width:860px){.mbar{display:flex} body{padding-bottom:72px}}
+  .flag{position:fixed;top:0;left:0;z-index:99;background:var(--gold);color:#1a1208;font-size:11px;font-weight:800;padding:5px 12px;border-bottom-right-radius:10px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+<div class="flag">DEMO CONCEPT — by Obsidian Labs</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/mrnickslogo-e1702566295817.png" alt="Mr. Nick's" onerror="this.style.display='none'">
+        <span class="bt">Mr. Nick's<small>Brick Oven · Tarrytown</small></span>
+      </a>
+      <nav><a href="#reviews">Reviews</a><a href="#menu">Menu</a><a href="#bar">The Bar</a><a href="#why">Why Us</a><a href="#visit">Visit</a></nav>
+      <a class="btn glass" href="https://mrnicksbrickovenpizza.netwaiter.com/" target="_blank" rel="noopener">Order Online</a>
+    </div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-card">
+      <div class="kick">A Tarrytown gem since 2007</div>
+      <h1 class="serif">Taste the <em>best pizza</em><br>in Tarrytown</h1>
+      <p>Real brick-oven pizza, homemade Italian classics, and a brand-new bar &amp; dining room — family-run, made the way you remember.</p>
+      <div class="btns">
+        <a class="btn red" href="https://mrnicksbrickovenpizza.netwaiter.com/" target="_blank" rel="noopener">🍕 Order Online</a>
+        <a class="btn green" href="tel:+19143660666">📞 Call to Reserve</a>
+      </div>
+      <div class="ratepill">★★★★★ <b>4.5</b> · loved by Tarrytown for 18+ years</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">4.5★</div><div class="l">Google &amp; Yelp rating</div></div>
+    <div class="stat"><div class="n">184+</div><div class="l">Five-star reviews</div></div>
+    <div class="stat"><div class="n">2007</div><div class="l">Serving since</div></div>
+    <div class="stat"><div class="n">Free</div><div class="l">Local delivery</div></div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section id="reviews"><div class="wrap">
+  <div class="center"><div class="eyebrow">Thanks to you</div><h2 class="h2 serif">Your neighbors said it best</h2>
+  <p class="sub">Real reviews from real regulars — the reason people drive across the Lower Hudson Valley for a slice.</p></div>
+  <div class="rgrid">
+    <div class="rcard"><div class="rstars">★★★★★</div><div class="rtext">I have literally gone on a hunt for the best pizza in the Lower Hudson Valley, and <b>THIS IS IT</b>. The staff are incredibly helpful and friendly and remember who you are and what you like.</div><div class="rname">Jerry Gregory <span>· Google</span></div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><div class="rtext">We've eaten at Mr. Nick's for the last 12 years and are so excited they expanded — a bar and sit-down restaurant in the back with a very nice atmosphere, excellent cocktails and an elevated menu.</div><div class="rname">Evelyn Ha <span>· Google</span></div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><div class="rtext">The food was excellent, the surroundings were very pleasant, but more than anything else, the staff was friendly and accommodating.</div><div class="rname">Ed Murphy <span>· Google</span></div></div>
+    <div class="rcard"><div class="rstars">★★★★★</div><div class="rtext">Oh Mr. Nick's how I love thee! When I moved here from Brooklyn, the hunt for good pizzeria food began… The pizza is delicious, their Italian food flavorful.</div><div class="rname">N.W. <span>· Google</span></div></div>
+  </div>
+</div></section>
+
+<!-- MENU -->
+<section class="menu" id="menu"><div class="wrap">
+  <div class="center"><div class="eyebrow">Wanna eat something?</div><h2 class="h2 serif">The Menu</h2>
+  <p class="sub">From hand-tossed brick-oven pies to homestyle pasta — there's a reason it's a 15-year tradition.</p></div>
+  <div class="mgrid">
+    <div class="mcard"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=72')"></div><div class="ov"></div><div class="gl"><h3>Brick-Oven Pizza</h3><p>Margherita to specialty pies — fired to order.</p></div></div>
+    <div class="mcard"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=72')"></div><div class="ov"></div><div class="gl"><h3>Homemade Pasta</h3><p>Hearty Italian classics, made from scratch.</p></div></div>
+    <div class="mcard"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=700&q=72')"></div><div class="ov"></div><div class="gl"><h3>Entrées</h3><p>Elevated dishes from the new back kitchen.</p></div></div>
+    <div class="mcard"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=72')"></div><div class="ov"></div><div class="gl"><h3>Heroes &amp; Salads</h3><p>Fresh salads and hearty sandwiches.</p></div></div>
+    <div class="mcard"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=72')"></div><div class="ov"></div><div class="gl"><h3>Desserts</h3><p>The gooey, classic finish to the night.</p></div></div>
+    <div class="mcard"><div class="bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=72')"></div><div class="ov"></div><div class="gl"><h3>Catering</h3><p>Trays &amp; party platters for any crowd.</p></div></div>
+  </div>
+  <div class="center" style="margin-top:32px"><a class="btn ghost" href="https://www.mrnicksbrickoven.com/wp-content/uploads/2025/09/NewInHouseMenu.pdf" target="_blank" rel="noopener">View full menu →</a></div>
+</div></section>
+
+<!-- BAR -->
+<section class="exp" id="bar"><div class="wrap">
+  <div class="glasscard">
+    <div class="eyebrow">New at Mr. Nick's</div>
+    <h2 class="serif">A bar &amp; dining room in the back</h2>
+    <p>We expanded. Now there's a full bar with excellent cocktails and a sit-down dining room with an elevated menu — the same family welcome, with more room to celebrate.</p>
+    <a class="btn red" href="tel:+19143660666">Reserve a table</a>
+  </div>
+</div></section>
+
+<!-- WHY UPGRADE -->
+<section class="why" id="why"><div class="wrap">
+  <div class="center"><div class="eyebrow">Why a new site pays for itself</div><h2 class="h2 serif">Your website today vs. what you'd own</h2>
+  <p class="sub">Your food and your reviews are five-star. Right now your website isn't — and that gap costs you orders every week.</p></div>
+  <div class="cmp">
+    <div class="col now">
+      <div class="tag">Your site today</div><h3 class="serif">A digital business card</h3>
+      <ul>
+        <li><span class="ic">✕</span> Menu is a <b>PDF you download</b> — painful on a phone, and Google can't read it.</li>
+        <li><span class="ic">✕</span> Your <b>184 five-star reviews are nowhere</b> on the page — your best asset, hidden.</li>
+        <li><span class="ic">✕</span> <b>No "Order Online" button</b> up top — hungry visitors leave to find one.</li>
+        <li><span class="ic">✕</span> Generic template, slow to load, doesn't show the new bar.</li>
+      </ul>
+    </div>
+    <div class="col new">
+      <div class="tag">What we built</div><h3 class="serif">An order &amp; reservation machine</h3>
+      <ul>
+        <li><span class="ic">✓</span> <b>One-tap Order, Call &amp; Reserve</b> — the craving gets captured in a single thumb tap.</li>
+        <li><span class="ic">✓</span> <b>Your real 5-star reviews front and center</b> — instant trust, more first-time orders.</li>
+        <li><span class="ic">✓</span> A menu that <b>loads instantly and shows up in Google</b> searches.</li>
+        <li><span class="ic">✓</span> The <b>new bar &amp; dining room showcased</b> — higher-margin tables and cocktails.</li>
+        <li><span class="ic">✓</span> Loads in under a second, looks built-for-today, and it's <b>yours forever</b>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pricebar">
+    <div class="big">$750 <small>one-time — built once, owned forever</small></div>
+    <p>A website's only job is to turn a "maybe" into an order or a booking. A couple of extra orders a week more than covers it — and there's <b>no monthly subscription</b>. Want the full web menu + online reservations too? That's the next step up whenever you're ready.</p>
+    <a class="btn green" href="tel:+19143660666">Let's talk — (914) 366-0666</a>
+  </div>
+</div></section>
+
+<!-- GALLERY (their real photos) -->
+<section><div class="wrap">
+  <div class="center"><div class="eyebrow">Straight from Mr. Nick's</div><h2 class="h2 serif">The real thing</h2>
+  <p class="sub">Your own photos — front and center, where customers actually see them.</p></div>
+  <div class="gal">
+    <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.29_a88351d6-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=400&q=70'" alt="Mr. Nick's">
+    <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.35_e75011f0.jpg" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=70'" alt="Mr. Nick's">
+    <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.43_bc0b7f5c-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=400&q=70'" alt="Mr. Nick's">
+    <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.33_b0ee9b4d-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=70'" alt="Mr. Nick's">
+    <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.44_90c7d210.jpg" onerror="this.src='https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=70'" alt="Mr. Nick's">
+    <img src="https://www.mrnicksbrickoven.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-14-at-19.30.36_ed2aff3d.jpg" onerror="this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=70'" alt="Mr. Nick's">
+  </div>
+</div></section>
+
+<!-- VISIT + MAP -->
+<section class="visit" id="visit"><div class="wrap">
+  <div class="vgrid">
+    <div class="vcard">
+      <h3 class="serif">Visit us</h3>
+      <p>19 N Broadway<br>Tarrytown, NY 10591</p>
+      <div class="hours" style="margin-top:14px">
+        <p><b>Mon</b> — Closed</p><p><b>Tue–Sat</b> — 11:00 AM – 10:00 PM</p><p><b>Sun</b> — 12:00 PM – 9:30 PM</p>
+      </div>
+      <p style="margin-top:16px"><a class="btn green" href="tel:+19143660666">📞 (914) 366-0666</a></p>
+    </div>
+    <div class="mapwrap">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mr. Nick's location"
+        src="https://www.google.com/maps?q=Mr.+Nick's+Restaurant,+19+N+Broadway,+Tarrytown,+NY+10591&output=embed"></iframe>
+    </div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="fb serif">Mr. Nick's Brick Oven</div>
+  <p>19 N Broadway, Tarrytown, NY 10591 · <a href="tel:+19143660666">(914) 366-0666</a> · <a href="https://www.instagram.com/mr.nicksrestaurant" target="_blank" rel="noopener">Instagram</a></p>
+  <p style="margin-top:8px;opacity:.65">Demo homepage concept by Obsidian Labs · not affiliated. Built once, owned forever.</p>
+</footer>
+
+<div class="mbar">
+  <a class="o" href="https://mrnicksbrickovenpizza.netwaiter.com/" target="_blank" rel="noopener">🍕 Order Online</a>
+  <a class="c" href="tel:+19143660666">📞 Call</a>
+</div>
+</body>
+</html>
